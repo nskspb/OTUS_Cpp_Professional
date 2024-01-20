@@ -1,3 +1,3 @@
-OTUS C++ Professional 2023-2024 
+OTUS C++ Professional 2023-2024S
 
-Repository for homeworks
+Repository for my homeworks
