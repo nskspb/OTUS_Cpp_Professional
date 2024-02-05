@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 
-set(CMAKE_PATCH_VERSION "1" CACHE "Patch version")
+set(PATCH_VERSION "1" CACHE "Patch version")
 set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
 project(helloworld VERSION ${PROJECT_VERSION})
@@ -16,3 +16,6 @@ set_target_properties(helloworld helloworld_library PROPERTIES
     CXX_STANDARD_REQUIRED ON
 )
 
+target_link_libraries(helloworld PRIVATE
+    helloworld_library
+)
