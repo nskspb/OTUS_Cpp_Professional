@@ -17,10 +17,10 @@ jobs:
             - run: echo "install GTest"
             - run: sudo apt-get update
             - run: sudo apt-get install libgtest-dev -y
-            - run: cmake -S $env:HOMEWORK_PATH -DPATCH_VERSION=${{ github.run_number }} -DWITH_GTEST=ON
-            - run: cmake --build $env:HOMEWORK_PATH
-            - run: cmake --build $env:HOMEWORK_PATH --target test
-            - run: cmake --build $env:HOMEWORK_PATH --target package
+            - run: cmake -S $HOMEWORK_PATH -DPATCH_VERSION=${{ github.run_number }} -DWITH_GTEST=ON
+            - run: cmake --build $HOMEWORK_PATH
+            - run: cmake --build $HOMEWORK_PATH --target test
+            - run: cmake --build $HOMEWORK_PATH --target package
             - name: Create Release
               id: create_release
               uses: actions/create-release@v1
