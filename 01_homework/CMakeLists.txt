@@ -3,15 +3,15 @@ cmake_minimum_required(VERSION 3.2)
 set(PATCH_VERSION "3" CACHE INTERNAL "Patch version")
 set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
-project(helloworld_01 VERSION ${PROJECT_VERSION})
+project(helloworld VERSION ${PROJECT_VERSION})
 
 option(WITH_GTEST "Whether to build Google test")
 configure_file(version.h.in version.h)
 
-add_executable(helloworld_01 main.cpp)
+add_executable(helloworld main.cpp)
 add_library(helloworld_library lib.cpp)
 
-set_target_properties(helloworld_01 helloworld_library PROPERTIES
+set_target_properties(helloworld helloworld_library PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )
@@ -21,7 +21,7 @@ target_include_directories(helloworld_library
     PRIVATE "${CMAKE_BINARY_DIR}"
 )
 
-target_link_libraries(helloworld_01 PRIVATE
+target_link_libraries(helloworld PRIVATE
     helloworld_library
 )
 
@@ -41,7 +41,7 @@ target_link_libraries(test_version PRIVATE
 
 endif()
 
-install(TARGETS helloworld_01 RUNTIME DESTINATION bin)
+install(TARGETS helloworld RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
