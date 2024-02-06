@@ -5,7 +5,7 @@ set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
 project(helloworld VERSION ${PROJECT_VERSION})
 
-#option
+#option(WITH_GTEST "Whether to build Google test")
 configure_file(version.h.in version.h)
 
 add_executable(helloworld main.cpp)
@@ -24,3 +24,18 @@ target_include_directories(helloworld_library
 target_link_libraries(helloworld PRIVATE
     helloworld_library
 )
+
+#if(WITH_GTEST)
+    find_package(GTest REQUIRED)
+    add_executable(test_version test_version.cpp)
+
+    set_target_properties(test_version PROPERTIES
+    CXX_STANDARD 17 
+    CXX_STANDARD_REQUIRED ON
+)
+
+target_link_libraries(test_version PRIVATE
+     ${GTEST_BOTH_LIBRARIES}
+     helloworld_library)
+
+#endif()
