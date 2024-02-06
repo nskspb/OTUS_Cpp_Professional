@@ -4,8 +4,8 @@ on:
     push:
         branches:
             - main
-        paths:
-            - '01_homework/**'
+        #paths:
+         #   - '01_homework/**'
 
 jobs:
     build:
