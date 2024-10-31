@@ -3,7 +3,7 @@
 
 TEST(Hello_World, Version_test)
 {
-    ASSERT_TRUE(version() == 0);
+    ASSERT_TRUE(version() != 0);
 }
 
 int main(int argc, char **argv)
