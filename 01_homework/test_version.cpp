@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "lib.hpp"
 
+// google tests
 TEST(Hello_World, Version_test)
 {
     ASSERT_TRUE(version() != 0);
